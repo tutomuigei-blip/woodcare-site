@@ -119,6 +119,40 @@ p+p{margin-top:12px}
 .gallery .pic img{aspect-ratio:4/3}
 .gallery figcaption{font-size:12.5px;color:var(--muted);margin-top:6px;text-align:center}
 
+/* 採用の帯（ホームの上段。求人が目立つように） */
+.recruit-band{
+  background:linear-gradient(100deg,var(--brown) 0%,var(--brown-d) 100%);
+  color:#fff;padding:26px 0;
+}
+.recruit-band .inner{
+  display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;
+}
+.recruit-band .t{font-size:12.5px;font-weight:800;letter-spacing:.16em;opacity:.92}
+.recruit-band h2{font-size:22px;font-weight:800;margin:4px 0 6px;line-height:1.5}
+.recruit-band p{font-size:14.5px;opacity:.95}
+.recruit-band .jobs{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.recruit-band .job{
+  background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.34);
+  border-radius:999px;padding:5px 14px;font-size:13px;font-weight:700;
+}
+@media(max-width:860px){
+  .recruit-band .inner{flex-direction:column;align-items:flex-start}
+  .recruit-band h2{font-size:19px}
+}
+
+/* 動くタイル（音なし・自動再生の短い動画） */
+.movie{
+  border-radius:16px;overflow:hidden;background:var(--cream);
+  box-shadow:0 6px 22px rgba(53,99,67,.10);line-height:0;position:relative;
+}
+.movie video,.movie img{width:100%;height:auto;display:block}
+/* 動きを減らす設定の方には、静止画のように見せる */
+@media (prefers-reduced-motion: reduce){
+  .movie video{display:none}
+  .movie .fallback{display:block}
+}
+.movie .fallback{display:none}
+
 /* 地図の埋め込み（スマホでも崩れないように枠で包む） */
 .mapbox{
   position:relative;width:100%;border-radius:14px;overflow:hidden;
