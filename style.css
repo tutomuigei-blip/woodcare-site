@@ -104,6 +104,28 @@ h3.plain{font-size:17px;color:var(--brown-d);margin:24px 0 8px;font-weight:800}
 p+p{margin-top:12px}
 @media(max-width:860px){.sec-h{font-size:21px}section{padding:44px 0}}
 
+/* ---------------- 写真 ---------------- */
+.pic{border-radius:16px;overflow:hidden;box-shadow:0 6px 22px rgba(53,99,67,.10);background:var(--cream)}
+.pic img{width:100%;height:100%;object-fit:cover;display:block}
+.pic.tall img{aspect-ratio:4/5}
+.pic.wide img{aspect-ratio:16/9}
+.hero .pic{box-shadow:0 10px 34px rgba(0,0,0,.22)}
+.cap{font-size:12.5px;color:var(--muted);margin-top:8px}
+
+/* ギャラリー */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:860px){.gallery{grid-template-columns:1fr 1fr}}
+.gallery figure{margin:0}
+.gallery .pic img{aspect-ratio:4/3}
+.gallery figcaption{font-size:12.5px;color:var(--muted);margin-top:6px;text-align:center}
+
+/* YouTube */
+.tube{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;align-items:center}
+@media(max-width:860px){.tube{grid-template-columns:1fr}}
+.tube .box{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px}
+.tube h3{font-size:20px;color:var(--green-d);margin-bottom:8px}
+.tube p{font-size:14.5px;color:#45403a;margin-bottom:14px}
+
 /* ---------------- 写真の枠（写真が入るまでの置き場所） ---------------- */
 .photo{
   background:repeating-linear-gradient(45deg,#f2ede3,#f2ede3 12px,#efe9dd 12px,#efe9dd 24px);
