@@ -1,0 +1,13 @@
+# 一時ファイル
+*.tmp
+*.bak
+~$*
+Thumbs.db
+.DS_Store
+
+# 公開しないもの（万一ここへ置いてしまっても commit しない）
+secrets/
+*.key
+*.pem
+.env
+.env.*

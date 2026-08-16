@@ -1,0 +1,205 @@
+@charset "UTF-8";
+/* ============================================================
+   合同会社ウッドケア コーポレートサイト 共通スタイル
+   茶（木）＋緑（葉）／温かい × 先進的／スマホ対応
+   色は下書き（woodcare_home.html）の値をそのまま引き継いでいる。
+   **色の定義はこの1か所だけ。** 各ページで色コードを書かない。
+   ============================================================ */
+
+:root{
+  --green:#4a8b5c; --green-d:#356343; --green-l:#eaf3ec;
+  --brown:#9a7b4f; --brown-d:#75593a; --brown-l:#f4efe6;
+  --cream:#f8f5ef; --ink:#33302a; --muted:#726a5d; --line:#e8e1d5;
+  --warn:#8a4b00; --warn-l:#fff4e3;
+  --wrap:1080px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+  color:var(--ink);background:#fff;line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--green-d);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------------- ヘッダー（全ページ共通） ---------------- */
+header{
+  position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:70px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;color:var(--green-d);font-size:19px}
+.brand:hover{text-decoration:none}
+.brand small{display:block;font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.04em}
+.brand .logo{width:38px;height:38px;flex:0 0 38px}
+.nav ul{display:flex;gap:18px;list-style:none;align-items:center;flex-wrap:wrap}
+.nav ul a{color:var(--ink);font-weight:600;font-size:13.5px;padding:6px 2px;display:inline-block}
+.nav ul a:hover{color:var(--green);text-decoration:none}
+/* いま開いているページを強調する */
+.nav ul a[aria-current="page"]{
+  color:var(--green-d);border-bottom:2.5px solid var(--green);
+}
+.nav .tel{background:var(--green);color:#fff!important;padding:9px 16px;border-radius:999px;font-size:13px}
+.nav .tel:hover{background:var(--green-d);text-decoration:none}
+@media(max-width:860px){
+  .nav{min-height:auto;padding:12px 0}
+  .nav ul{gap:12px;font-size:13px;width:100%;order:3}
+  .nav ul a{font-size:13px}
+}
+
+/* ---------------- ページ見出し（下層ページ） ---------------- */
+.pagehead{background:linear-gradient(160deg,var(--green) 0%,var(--green-d) 100%);color:#fff;position:relative;overflow:hidden}
+.pagehead:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 120%,rgba(154,123,79,.4),transparent 55%)}
+.pagehead .wrap{position:relative;padding:46px 20px 50px}
+.pagehead .t{font-size:12.5px;font-weight:800;letter-spacing:.18em;opacity:.9}
+.pagehead h1{font-size:29px;font-weight:800;margin-top:6px;line-height:1.5}
+.pagehead p{margin-top:12px;font-size:15px;opacity:.95;max-width:760px}
+@media(max-width:860px){.pagehead h1{font-size:23px}}
+
+/* パンくず */
+.crumb{background:var(--cream);border-bottom:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+.crumb .wrap{padding:10px 20px}
+
+/* ---------------- ヒーロー（ホームのみ） ---------------- */
+.hero{position:relative;background:linear-gradient(160deg,var(--green) 0%,var(--green-d) 100%);color:#fff;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 82% 118%,rgba(154,123,79,.4),transparent 55%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;padding:60px 20px 66px}
+.hero .badge{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:6px 15px;font-size:12.5px;font-weight:700;margin-bottom:18px}
+.hero h1{font-size:32px;line-height:1.55;font-weight:800;margin-bottom:16px}
+.hero h1 small{display:block;font-size:15.5px;font-weight:600;opacity:.92;margin-top:12px}
+.hero p{font-size:15px;opacity:.95;margin-bottom:24px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero .photo{min-height:280px;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.5);color:#fff}
+@media(max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;padding:44px 20px 50px}
+  .hero h1{font-size:25px}
+}
+
+/* ---------------- ボタン ---------------- */
+.btn{display:inline-flex;align-items:center;gap:7px;padding:13px 22px;border-radius:12px;font-weight:700;font-size:15px}
+.btn:hover{text-decoration:none}
+.btn-w{background:#fff;color:var(--green-d)}.btn-w:hover{background:#eef6ef}
+.btn-o{border:1.5px solid rgba(255,255,255,.8);color:#fff}.btn-o:hover{background:rgba(255,255,255,.12)}
+.btn-g{background:var(--green);color:#fff}.btn-g:hover{background:var(--green-d)}
+.btn-b{background:var(--brown);color:#fff}.btn-b:hover{background:var(--brown-d)}
+.btn-line{border:1.5px solid var(--green);color:var(--green-d);background:#fff}
+.btn-line:hover{background:var(--green-l)}
+
+/* ---------------- セクション ---------------- */
+section{padding:60px 0}
+.band{background:var(--cream)}
+.band-g{background:var(--green-l)}
+.band-b{background:var(--brown-l)}
+.sec-head{text-align:center;margin-bottom:34px}
+.sec-t{font-size:13px;font-weight:800;color:var(--brown);letter-spacing:.18em}
+.sec-h{font-size:26px;font-weight:800;color:var(--green-d);margin-top:6px}
+.lead{font-size:15.5px;color:#45403a;max-width:800px;margin:0 auto;text-align:center}
+h2.plain{font-size:21px;color:var(--green-d);margin:34px 0 12px;font-weight:800}
+h3.plain{font-size:17px;color:var(--brown-d);margin:24px 0 8px;font-weight:800}
+p+p{margin-top:12px}
+@media(max-width:860px){.sec-h{font-size:21px}section{padding:44px 0}}
+
+/* ---------------- 写真の枠（写真が入るまでの置き場所） ---------------- */
+.photo{
+  background:repeating-linear-gradient(45deg,#f2ede3,#f2ede3 12px,#efe9dd 12px,#efe9dd 24px);
+  border:2px dashed var(--brown);border-radius:16px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:var(--brown-d);font-size:14px;font-weight:600;min-height:200px;gap:6px;
+  text-align:center;padding:16px;
+}
+.photo .em{font-size:30px}
+
+/* ---------------- カード類 ---------------- */
+.cards2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:860px){.cards2,.cards3{grid-template-columns:1fr}.cards4{grid-template-columns:1fr 1fr}}
+
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 6px 22px rgba(53,99,67,.06);display:flex;flex-direction:column}
+.card .top{padding:14px 22px;font-size:12.5px;font-weight:800;letter-spacing:.1em;color:#fff}
+.card.care .top{background:var(--green)}
+.card.dx .top{background:var(--brown)}
+.card .body{padding:24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h3{font-size:20px;color:var(--green-d)}
+.card .sub{font-size:13px;color:var(--muted)}
+.card p{font-size:14px;color:#45403a}
+.card ul{list-style:none;font-size:13.5px;color:#45403a}
+.card li{padding:4px 0 4px 20px;position:relative}
+.card li:before{content:"●";color:var(--green);position:absolute;left:0;font-size:10px;top:8px}
+.card.dx li:before{color:var(--brown)}
+.card .more{margin-top:auto;padding-top:8px}
+
+.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;text-align:center}
+.stat .n{font-size:26px;font-weight:800;color:var(--green)}
+.stat .l{font-size:12.5px;color:var(--muted);margin-top:6px}
+
+.voice{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;position:relative}
+.voice:before{content:"”";position:absolute;top:6px;right:18px;font-size:56px;color:var(--green-l);font-family:Georgia,serif;line-height:1}
+.voice p{font-size:14.5px;color:#45403a;position:relative}
+.voice .who{margin-top:10px;font-size:13px;color:var(--muted)}
+
+/* 2カラム（写真＋文章） */
+.split{display:grid;grid-template-columns:1fr 1.25fr;gap:36px;align-items:center}
+.split.rev{grid-template-columns:1.25fr 1fr}
+@media(max-width:860px){.split,.split.rev{grid-template-columns:1fr}}
+.split p{font-size:15px;color:#45403a}
+.split .sig{text-align:right;color:var(--muted);font-size:14px;margin-top:10px}
+
+/* ---------------- 表（会社概要など） ---------------- */
+.table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.table th,.table td{padding:14px 18px;border-bottom:1px solid var(--line);font-size:14.5px;text-align:left;vertical-align:top}
+.table th{background:var(--cream);color:var(--brown-d);font-weight:800;width:180px;white-space:nowrap}
+.table tr:last-child th,.table tr:last-child td{border-bottom:0}
+@media(max-width:640px){
+  .table th,.table td{display:block;width:auto}
+  .table th{border-bottom:0;padding-bottom:4px}
+  .table td{padding-top:0}
+}
+
+/* ---------------- 情報セキュリティ基本方針 ---------------- */
+.policy{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px}
+.policy h3{font-size:16px;color:var(--green-d);margin:20px 0 6px;font-weight:800}
+.policy h3:first-of-type{margin-top:0}
+.policy p,.policy li{font-size:14.5px;color:#45403a}
+.policy ul{margin:8px 0 0 20px}
+.policy li{padding:3px 0}
+.policy .sig{margin-top:22px;text-align:right;color:var(--muted);font-size:13.5px}
+@media(max-width:860px){.policy{padding:20px}}
+
+/* ---------------- お知らせ ---------------- */
+.news{list-style:none;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.news li{display:flex;gap:18px;padding:14px 20px;border-bottom:1px solid var(--line);font-size:14.5px}
+.news li:last-child{border-bottom:0}
+.news .d{color:var(--brown);font-weight:700;white-space:nowrap}
+@media(max-width:640px){.news li{flex-direction:column;gap:2px}}
+
+/* ---------------- 「これから決めること」の印 ---------------- */
+.todo{
+  background:var(--warn-l);border:1px dashed var(--warn);border-radius:12px;
+  padding:14px 18px;font-size:13.5px;color:var(--warn);margin-top:14px;
+}
+.todo b{color:var(--warn)}
+.note{font-size:13px;color:var(--muted);margin-top:10px}
+
+/* ---------------- 連絡先の箱 ---------------- */
+.contactbox{background:var(--green-d);color:#fff;border-radius:18px;padding:30px;text-align:center}
+.contactbox .lbl{font-size:13.5px;opacity:.9}
+.contactbox .num{font-size:34px;font-weight:800;letter-spacing:.02em;margin:6px 0 14px}
+.contactbox .num a{color:#fff}
+@media(max-width:640px){.contactbox .num{font-size:26px}}
+
+/* ---------------- フッター（全ページ共通） ---------------- */
+footer{background:var(--brown-d);color:#fff;padding:44px 0 26px;margin-top:0}
+footer a{color:#fff}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}
+@media(max-width:860px){.foot{grid-template-columns:1fr}}
+footer .fname{font-weight:800;font-size:17px;margin-bottom:6px}
+footer p,footer li{font-size:13.5px;opacity:.92}
+footer ul{list-style:none}
+footer li{padding:3px 0}
+.copy{border-top:1px solid rgba(255,255,255,.2);margin-top:26px;padding-top:16px;text-align:center;font-size:12.5px;opacity:.85}
