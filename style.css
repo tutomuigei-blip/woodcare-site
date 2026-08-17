@@ -259,6 +259,35 @@ p+p{margin-top:12px}
 .todo b{color:var(--warn)}
 .note{font-size:13px;color:var(--muted);margin-top:10px}
 
+/* ---------------- SECURITY ACTION（セキュリティ対策自己宣言）ロゴ ----------------
+   IPA「SECURITY ACTION ロゴマーク使用ガイドライン」(2024.07.01 Ver3.1) を守る。
+     ・Web は縦 34px 以上   → ここでは 110px（スマホ 92px）
+     ・加工しない           → 色・縦横比・形を変えない。フチや文字を足さない。
+                              切らない。薄くしない（opacity・filter を当てない）
+     ・背景を透けさせない   → かならず白の無地の板の上に置く（写真・模様の上に置かない）
+     ・「セキュリティ対策自己宣言」の文字は画像の一部。文字ごと使う
+   画像そのものには一切スタイルを当てず、**縦横だけ**を指定する。
+   ------------------------------------------------------------------------ */
+.sa{
+  display:flex;align-items:center;gap:18px;
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:16px 20px;color:var(--ink);
+}
+.sa img{width:110px;height:110px;flex:0 0 110px}   /* 正方形のまま・34px 以上 */
+.sa .t{font-weight:800;font-size:15px;line-height:1.7}
+.sa .d{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.8}
+.sa .d a{color:var(--green-d)}
+@media(max-width:560px){
+  .sa{flex-direction:column;text-align:center;gap:12px;padding:18px}
+  .sa img{width:92px;height:92px;flex:0 0 92px}
+}
+
+/* フッターは地が濃い茶色なので、白い板の上に置いて読みやすさを確保する */
+.sa-foot{margin-top:30px}
+footer .sa{color:var(--ink)}
+footer .sa .t,footer .sa .d{opacity:1}
+footer .sa a{color:var(--green-d)}
+
 /* ---------------- 連絡先の箱 ---------------- */
 .contactbox{background:var(--green-d);color:#fff;border-radius:18px;padding:30px;text-align:center}
 .contactbox .lbl{font-size:13.5px;opacity:.9}
