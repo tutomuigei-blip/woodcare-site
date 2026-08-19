@@ -163,12 +163,26 @@ p+p{margin-top:12px}
 @media(max-width:640px){.mapbox iframe{height:280px}}
 
 /* 相談チャネルのカード */
-.ch{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
-@media(max-width:860px){.ch{grid-template-columns:1fr}}
+.ch{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;align-items:stretch}
+@media(max-width:640px){.ch{grid-template-columns:1fr}}
 .ch .card .body{gap:12px}
 .ch .big{font-size:22px;font-weight:800;color:var(--green-d);letter-spacing:.01em;word-break:break-all}
 .ch .big a{color:var(--green-d)}
 @media(max-width:640px){.ch .big{font-size:18px}}
+
+/* LINEのカード（QRコードはパソコンでご覧の方向け／ボタンはスマホの方向け） */
+.ch .qr{margin-top:4px;text-align:center}
+.ch .qr img{
+  width:200px;height:200px;max-width:100%;display:inline-block;
+  border:1px solid var(--line);border-radius:12px;background:#fff;
+}
+.ch .qr .note{margin-top:8px}
+/* スマホは自分の画面のQRを読めないので、ボタンを大きく・QRは小さめに */
+@media(max-width:640px){
+  .ch .line-btn{width:100%;justify-content:center;font-size:16px;padding:15px 22px}
+  .ch .qr img{width:132px;height:132px}
+  .ch .qr .note{font-size:12px}
+}
 
 /* YouTube */
 .tube{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;align-items:center}
