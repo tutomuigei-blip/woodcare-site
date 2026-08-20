@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tutomuigei-blip.github.io/woodcare-site/sitemap.xml
