@@ -207,6 +207,14 @@ p+p{margin-top:12px}
 .cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 @media(max-width:860px){.cards2,.cards3{grid-template-columns:1fr}.cards4{grid-template-columns:1fr 1fr}}
 
+/* 枚数が4枚を超えても自動で折り返して整列する版（採用ページの強みカード）
+   PC=4列／タブレット=2列／スマホ=1列。最終行は中央そろえ。 */
+.cards4.cards-flow{display:flex;flex-wrap:wrap;justify-content:center}
+.cards4.cards-flow>*{flex:0 1 calc(25% - 12px)}
+.cards4.cards-flow .l{text-wrap:balance}   /* 折り返しが1文字だけ余るのを防ぐ（文字サイズ・色・余白は変えない） */
+@media(max-width:860px){.cards4.cards-flow>*{flex:0 1 calc(50% - 8px)}}
+@media(max-width:640px){.cards4.cards-flow>*{flex:1 1 100%}}
+
 .card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 6px 22px rgba(53,99,67,.06);display:flex;flex-direction:column}
 .card .top{padding:14px 22px;font-size:12.5px;font-weight:800;letter-spacing:.1em;color:#fff}
 .card.care .top{background:var(--green)}
